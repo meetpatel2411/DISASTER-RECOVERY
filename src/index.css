@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  DISASTER RECOVERY SYSTEM - Design System
+  =========================================
+  Professional emergency management aesthetic with navy blues + emergency amber accents
+  All colors in HSL format for Tailwind compatibility
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Light mode (command center aesthetic) */
+    --background: 210 20% 98%;
+    --foreground: 220 30% 15%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    /* Popover/dropdown surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    /* Primary - Deep Navy Blue (authority, trust) */
+    --primary: 220 60% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Slate gray for secondary actions */
+    --secondary: 215 20% 93%;
+    --secondary-foreground: 220 30% 25%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Emergency Amber/Orange */
+    --accent: 38 95% 55%;
+    --accent-foreground: 220 30% 15%;
+
+    /* Destructive - Alert Red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - Safe Green */
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Caution Yellow */
+    --warning: 45 95% 50%;
+    --warning-foreground: 220 30% 15%;
+
+    /* Info - Informational Blue */
+    --info: 200 85% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Severity colors */
+    --severity-low: 142 70% 40%;
+    --severity-medium: 45 95% 50%;
+    --severity-high: 25 95% 55%;
+    --severity-critical: 0 72% 51%;
+
+    /* Status colors */
+    --status-reported: 215 80% 55%;
+    --status-investigating: 45 95% 50%;
+    --status-responding: 25 95% 55%;
+    --status-resolved: 142 70% 40%;
+    --status-closed: 215 15% 50%;
+
+    /* Border and input */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 220 60% 25%;
+
+    /* Border radius */
+    --radius: 0.625rem;
+
+    /* Sidebar */
+    --sidebar-background: 220 40% 18%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 38 95% 55%;
+    --sidebar-primary-foreground: 220 30% 15%;
+    --sidebar-accent: 220 35% 25%;
+    --sidebar-accent-foreground: 210 30% 90%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 38 95% 55%;
+
+    /* Chart colors */
+    --chart-1: 220 60% 35%;
+    --chart-2: 38 95% 55%;
+    --chart-3: 142 70% 45%;
+    --chart-4: 0 72% 55%;
+    --chart-5: 200 85% 50%;
+  }
+
+  .dark {
+    /* Dark mode - Night operations aesthetic */
+    --background: 220 25% 10%;
+    --foreground: 210 30% 95%;
+
+    --card: 220 25% 14%;
+    --card-foreground: 210 30% 95%;
+
+    --popover: 220 25% 14%;
+    --popover-foreground: 210 30% 95%;
+
+    --primary: 38 95% 55%;
+    --primary-foreground: 220 30% 10%;
+
+    --secondary: 220 25% 20%;
+    --secondary-foreground: 210 30% 90%;
+
+    --muted: 220 25% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 38 95% 55%;
+    --accent-foreground: 220 30% 10%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 95% 55%;
+    --warning-foreground: 220 30% 10%;
+
+    --info: 200 85% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 25% 22%;
+    --input: 220 25% 22%;
+    --ring: 38 95% 55%;
+
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 38 95% 55%;
+    --sidebar-primary-foreground: 220 30% 10%;
+    --sidebar-accent: 220 30% 15%;
+    --sidebar-accent-foreground: 210 30% 90%;
+    --sidebar-border: 220 25% 18%;
+    --sidebar-ring: 38 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Leaflet map overrides */
+.leaflet-container {
+  font-family: inherit;
+  border-radius: var(--radius);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+}
